@@ -1,4 +1,4 @@
-console.log("CHartJS");
+console.log("CHartJS"); 
 
 var ctx = document.getElementById("myChart").getContext('2d');
 
@@ -61,4 +61,25 @@ function chartClear() {
     }
 }
 
+var c = document.getElementById("myPieChart").getContext('2d');
+var myPieChart = new Chart(c,{
+    type: 'pie',
+    data: {
+        labels:[],
+        datasets: [{
+            label: 'Amzius',
+            data: [],
+            borderWidth: 3,
+            backgroundColor: ["green"],
+        }]
+    } 
+});
 
+
+function chartAdd() {
+
+    myPieChart.data.labels.push(document.getElementById('vardas').value);
+    myPieChart.data.datasets[0].data.push(document.getElementById('amzius').value);
+    myPieChart.data.datasets[1].data.push(document.getElementById('alga').value);
+    myPieChart.update();
+}
